@@ -1,0 +1,3 @@
+Webpage to display any and all notes I take on the podcasts I listen to
+
+I'm going for a similar feel to https://hubermanlab.com/ where I'll display tiles that can be selected in order to access the notes I take. This is a super practical project as it will enable me to stop filling random physical notebooks with messy notes. My only concern with this is that it may be HTML / CSS - heavy, and lacking in JavaScript. For that reason, I plan to add in some features that will strengthen and show off my JS / React capabilities.
