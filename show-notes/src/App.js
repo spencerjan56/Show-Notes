@@ -24,6 +24,7 @@ export default function App(){
               />
             ))}
           </div>} />
+          
         <Route path="/route/:routeId" element={<PodContentPages />} />
       </Routes>
     </BrowserRouter>

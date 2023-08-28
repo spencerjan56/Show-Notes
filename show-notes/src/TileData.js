@@ -1,5 +1,5 @@
 const tileDataArray = [
-    {imageUrl: 'https://steamuserimages-a.akamaihd.net/ugc/1466437268076310022/3453C2187E128B756E9611A1F7890CC88507CE1E/?imw=637&imh=358&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true',
+    {imageUrl: 'https://i0.wp.com/hubermanlab.com/wp-content/uploads/2023/08/Episode-Card-139.jpg?resize=1080%2C608&ssl=1',
     routeTo: '/route/1',},
     {imageUrl: 'https://i0.wp.com/hubermanlab.com/wp-content/uploads/2023/07/Episode-Card-133.jpg?resize=1080%2C608&ssl=1',
     routeTo: '/route/2',},

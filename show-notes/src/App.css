@@ -1,3 +1,12 @@
+.top-bar{
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  height: 20px;
+}
+
 
 .home-tiles-container{
   display: flex;
@@ -8,7 +17,7 @@
 }
 
 .home-tile{
-  flex-basis: calc(33.33% - 10px); /* 3 tiles wide with spacing */
+  flex-basis: calc(33.33% - 10px);
   margin-bottom: 20px;
 }
 
@@ -16,3 +25,18 @@
   width: 350px;
   height: 200px;
 }
+
+.pod-content-page{
+  background-color: rgba(39, 78, 16, 0.781);
+  color: white;
+}
+
+.bottom-bar{
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  background-color: black;
+  height: 50px;
+}
+ 

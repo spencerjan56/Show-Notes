@@ -2,8 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 const podNotes = [
-    { id: '1', title: 'Podcast Title Here' },
-    { id: '2', title: '' },
+    { id: '1', title: 'Huberman Lab - Achieve Your Goals', subtitle:'Goals Toolkit: How to Set & Achieve Your Goals', link:'https://www.youtube.com/embed/CrtR12PBKb0' },
+    { id: '2', title: '???' },
     { id: '3', title: '' },
     { id: '4', title: '' },
     { id: '5', title: '' },
@@ -27,10 +27,31 @@ const PodContentPages = () => {
     const notes = podNotes.find(item => item.id === routeId);
 
     return (
+
         <div className="pod-content-page">
+            <div className='top-bar'></div>
             <h2>{notes ? notes.title : 'Content Not Found'}</h2>
-            <p>Other stuff here</p>
+            <p>{notes.subtitle}</p>
+
+            <iframe
+                width="560"
+                height="315"
+                src={notes.link}
+                title={notes.title}
+                allowFullScreen
+            ></iframe>
+            
+
+            <p>
+                This will be a text field that will display my notes.
+                It will be editable when logged in.
+                But when not logged in, it will simply appear as text on the screen.
+            </p>
+
+            <div className='bottom-bar'></div>
+
         </div>
+        
     )
 }
 
