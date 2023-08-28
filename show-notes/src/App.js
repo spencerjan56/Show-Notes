@@ -6,6 +6,9 @@ import { BrowserRouter } from 'react-router-dom';
 
 import HomeTile from './components/HomeTile'
 import tileDataArray from './TileData'
+import PodContentPages from './components/PodContentPages'
+
+
 
 
 export default function App(){
@@ -21,6 +24,7 @@ export default function App(){
               />
             ))}
           </div>} />
+        <Route path="/route/:routeId" element={<PodContentPages />} />
       </Routes>
     </BrowserRouter>
   )
