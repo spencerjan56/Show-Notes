@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+
+
 
 const podNotes = [
     { id: '1', title: 'Huberman Lab - Achieve Your Goals', subtitle:'Goals Toolkit: How to Set & Achieve Your Goals', link:'https://www.youtube.com/embed/CrtR12PBKb0' },
@@ -42,11 +44,7 @@ const PodContentPages = () => {
             ></iframe>
             
 
-            <p>
-                This will be a text field that will display my notes.
-                It will be editable when logged in.
-                But when not logged in, it will simply appear as text on the screen.
-            </p>
+            <p> Notes will go here </p>
 
             <div className='bottom-bar'></div>
 
