@@ -29,10 +29,6 @@ function NoteBox() {
     export default NoteBox;
 
 
-    /// This is a work in progress. For some reason, when I import 
-    /// either 'noteBox' or 'editableText' into PodContentPages
-    /// It says that the import is not recognized.
-
-    /// Either way.. the above code is the beginning stage of 
-    /// a CRUD text field (when logged in) that will alternatively
-    /// appear as a simple text field when not logged  in :)
+   /// Currently contains a non-functional (no critical error) useState hook that
+   /// will eventually check for log-in status, and display accordingly, as
+   /// well as give (or not give) authority to edit.

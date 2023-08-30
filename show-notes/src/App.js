@@ -15,10 +15,18 @@ import PodContentPages from './components/PodContentPages'
 
 
 export default function App(){
+
+  const [loggedIn, setLoggedIn] = useState(false);
+
   return(
     <BrowserRouter>
       <div className='app-container'>
         <div className='home-top-bar'>
+        {loggedIn ? (
+              <button onClick={() => setLoggedIn(false)}>logout</button>
+            ) : (
+              <button onClick={() => setLoggedIn(true)}>login</button>
+            )}
           <p className='website-title'>Show Notes</p>
         </div>
         <div className='home-side-bar'>

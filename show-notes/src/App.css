@@ -2,6 +2,29 @@
 
 }
 
+button {
+  background-color: white;
+  margin-top: 12px;
+  margin-left: 1350px;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+
+button:focus {
+  outline: none;
+}
+
 .home-top-bar{
   top: 0;
   left: 0;
@@ -10,10 +33,12 @@
   background-color: white;
   height: 80px;
   /* border-bottom: 1px solid black; */
+  z-index: 2;
 }
 
+
 .website-title{
-  margin-top: 10px;
+  margin-top: -25px;
   margin-left: 160px;
   color: black;
   font-size: 48px;
@@ -37,6 +62,7 @@
   width: 80px;
   background-color: black;
   height: 100%;
+  z-index: 2;
 }
 
 
