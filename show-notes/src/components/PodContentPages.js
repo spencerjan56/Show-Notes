@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-
+import NoteBox from './PodPageNoteBox';
 
 
 const podNotes = [
@@ -34,20 +34,23 @@ const PodContentPages = () => {
             <div className='top-bar'></div>
             <h2>{notes ? notes.title : 'Content Not Found'}</h2>
             <p>{notes.subtitle}</p>
+            <div className='video-display-container'>
+                <iframe
+                    className='video-display'
+                    width="560"
+                    height="315"
+                    src={notes.link}
+                    title={notes.title}
+                    allowFullScreen
+                ></iframe>
+            </div>
 
-            <iframe
-                width="560"
-                height="315"
-                src={notes.link}
-                title={notes.title}
-                allowFullScreen
-            ></iframe>
-            
-
-            <p> Notes will go here </p>
-
+            <NoteBox />
+            <div className='side-bar'>
+                <i className='fas fa-bars burger-icon'></i>
+            </div>
             <div className='bottom-bar'></div>
-
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
         </div>
         
     )

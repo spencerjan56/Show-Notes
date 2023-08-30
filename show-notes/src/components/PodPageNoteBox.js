@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
 
-function noteBox() {
-    const [loggedIn, setLoggedIn] = useState(True);
+function NoteBox() {
+    const [loggedIn, setLoggedIn] = useState(true);
     const [editableText, setEditableText] = useState('Default Text');
 
     const handleInputChange = (event) => {
@@ -10,21 +10,23 @@ function noteBox() {
       };
     
       return (
-        <div>
-          {loggedIn ? (
-            <input
-              type="text"
-              value={editableText}
-              onChange={handleInputChange}
-            />
-          ) : (
-            <p>{editableText}</p>
-          )}
+        <div className="note-box-container">
+          <div className='note-box'>
+            {loggedIn ? (
+              <input
+                type="text"
+                value={editableText}
+                onChange={handleInputChange}
+              />
+            ) : (
+              <p>{editableText}</p>
+            )}
+          </div>
         </div>
       );
     }
     
-    export default noteBox;
+    export default NoteBox;
 
 
     /// This is a work in progress. For some reason, when I import 

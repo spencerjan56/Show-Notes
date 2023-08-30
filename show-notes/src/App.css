@@ -1,18 +1,52 @@
-.top-bar{
+.app-container{
+
+}
+
+.home-top-bar{
   top: 0;
   left: 0;
   width: 100%;
   position: fixed;
+  background-color: white;
+  height: 80px;
+  /* border-bottom: 1px solid black; */
+}
+
+.website-title{
+  margin-top: 10px;
+  margin-left: 160px;
+  color: black;
+  font-size: 48px;
+  font-family: 'Nothing You Could Do', sans-serif;
+}
+
+.burger-icon {
+  font-size: 26px;
+  color: white;
+  margin-top: 20px;
+  margin-left: 25px;
+  z-index: 1;
+}
+
+.home-side-bar{
+  display: flex;
+  position: fixed;
+  padding-right: 10px;
+  top: 0;
+  left: 0;
+  width: 80px;
   background-color: black;
-  height: 20px;
+  height: 100%;
 }
 
 
 .home-tiles-container{
   display: flex;
   flex-wrap: wrap;
+  padding-top: 150px;
   justify-content: space-between;
   margin: 0 auto;
+  margin-right: 6%;
   max-width: 1200px;
 }
 
@@ -22,21 +56,76 @@
 }
 
 .home-tile img{
-  width: 350px;
+  width: 370px;
   height: 200px;
+  
+  padding-right: -50px;
+  padding-left: 30px;
+  padding-bottom: 20px;
 }
 
 .pod-content-page{
-  background-color: rgba(39, 78, 16, 0.781);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
   color: white;
+}
+
+.video-display-container{
+  
+}
+
+.video-dispaly{
+  
 }
 
 .bottom-bar{
   bottom: 0;
   left: 0;
   width: 100%;
-  position: fixed;
   background-color: black;
   height: 50px;
 }
+
+.side-bar{
+  display: flex;
+  position: fixed;
+  padding-right: 10px;
+  top: 0;
+  left: 0;
+  width: 80px;
+  background-color: black;
+  height: 100%;
+}
  
+.note-box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.note-box{
+  width: 1000px;
+  height: 500px;
+  padding: 0px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.note-box input[type="text"] {
+  width: calc(100% - 18.5px);
+  height: calc(100% - 18.5px);
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.note-box p {
+  margin: 0;
+  padding: 8px;
+}
