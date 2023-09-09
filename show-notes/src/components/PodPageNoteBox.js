@@ -1,26 +1,32 @@
 import React, { useState } from 'react';
 
+import LoginButton from './LoginButton';
+
 
 function NoteBox() {
-    const [loggedIn, setLoggedIn] = useState(true);
-    const [editableText, setEditableText] = useState('Default Text');
+  const [editableText, setEditableText] = useState('Default Text');
+  const [loggedIn, setLoggedIn] = useState(false);
 
     const handleInputChange = (event) => {
         setEditableText(event.target.value);
       };
     
       return (
-        <div className="note-box-container">
-          <div className='note-box'>
-            {loggedIn ? (
-              <input
-                type="text"
-                value={editableText}
-                onChange={handleInputChange}
-              />
-            ) : (
-              <p>{editableText}</p>
-            )}
+        <div>
+          <LoginButton loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          <div className="note-box-container">
+            <div className='note-box'>
+              {loggedIn ? (
+                <input
+                  type="text"
+                  value={editableText}
+                  onChange={handleInputChange}
+                  className="editable-input"
+                />
+              ) : (
+                <p className="non-editable-text" readOnly>{editableText}</p>
+              )}
+            </div>
           </div>
         </div>
       );
@@ -29,6 +35,7 @@ function NoteBox() {
     export default NoteBox;
 
 
-   /// Currently contains a non-functional (no critical error) useState hook that
-   /// will eventually check for log-in status, and display accordingly, as
-   /// well as give (or not give) authority to edit.
+ /// login currently not functional
+
+ /// for the text box logged in/out: I could *theoretically* use the same
+ // {editableText} and just change the <input> to a <p>

@@ -147,11 +147,19 @@ button:focus {
   width: calc(100% - 18.5px);
   height: calc(100% - 18.5px);
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(212, 21, 21);
   border-radius: 3px;
 }
 
 .note-box p {
   margin: 0;
   padding: 8px;
+}
+
+.editable-input {
+  color: black;
+}
+
+.non-editable-text {
+  color:black
 }

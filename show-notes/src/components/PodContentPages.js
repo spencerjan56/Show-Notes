@@ -60,3 +60,8 @@ const PodContentPages = () => {
 
 
 export default PodContentPages
+
+
+/// this is so silly but somehow I cant find out why/how there's
+// a login button being displayed at the top of the page. I created a
+// replacement but cant seem to get rid of the old one. Brain tired.

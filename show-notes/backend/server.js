@@ -20,6 +20,5 @@ app.use(cors());
   useUnifiedTopology: true,
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-  });
+/// Backend functions will go down here ///
+

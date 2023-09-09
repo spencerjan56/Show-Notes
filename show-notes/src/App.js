@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 
-
+import LoginButton from './components/LoginButton';
 import HomeTile from './components/HomeTile'
 import tileDataArray from './TileData'
 import PodContentPages from './components/PodContentPages'
@@ -22,11 +22,7 @@ export default function App(){
     <BrowserRouter>
       <div className='app-container'>
         <div className='home-top-bar'>
-        {loggedIn ? (
-              <button onClick={() => setLoggedIn(false)}>logout</button>
-            ) : (
-              <button onClick={() => setLoggedIn(true)}>login</button>
-            )}
+          <LoginButton loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           <p className='website-title'>Show Notes</p>
         </div>
         <div className='home-side-bar'>
@@ -53,3 +49,7 @@ export default function App(){
     </BrowserRouter>
   )
 }
+
+
+/// login button is currently here but im not sure of 
+// its current function.
