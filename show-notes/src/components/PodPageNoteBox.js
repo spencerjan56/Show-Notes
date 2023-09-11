@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import LoginButton from './LoginButton';
 
@@ -7,13 +7,35 @@ function NoteBox() {
   const [editableText, setEditableText] = useState('Default Text');
   const [loggedIn, setLoggedIn] = useState(false);
 
+
+    useEffect(() => {
+      fetch('/api/saveNote')
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.note) {
+            setEditableText(data.note.text);
+          }
+        });
+    }, []);
+
     const handleInputChange = (event) => {
-        setEditableText(event.target.value);
-      };
+      setEditableText(event.target.value);
+  
+      fetch('/api/saveNote', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ text: event.target.value }),
+      });
+    };
+    
     
       return (
         <div>
-          <LoginButton loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          <div className='ppLoginButtonBox'>
+            <LoginButton className='ppLoginButton' loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+          </div>
           <div className="note-box-container">
             <div className='note-box'>
               {loggedIn ? (
