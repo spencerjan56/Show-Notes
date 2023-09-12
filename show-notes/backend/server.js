@@ -10,7 +10,7 @@ const app = express();
 const port = 3000;
 
 const corsOptions = {
-  origin: 'http://localhost:3000', // Adjust the origin to match your frontend URL
+  origin: 'http://localhost:3000',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   optionsSuccessStatus: 204,
@@ -63,3 +63,7 @@ app.get('/api/getNote', async (req, res) => {
   }
 });
 ///
+
+
+/// My code looks great. I dont know why it isnt s`aving 
+// anything I type into the text box. I'm in pain.
