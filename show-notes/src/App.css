@@ -187,3 +187,11 @@ button:focus {
 .ppLoginButton {
   z-index: 4;
 }
+
+.replace-button {
+  background-color: #ff5733;
+  color: white;
+  border: 1px solid #ff5733;
+  padding: 8px 16px;
+  cursor: pointer;
+}

@@ -8,6 +8,7 @@ import LoginButton from './components/LoginButton';
 import HomeTile from './components/HomeTile'
 import tileDataArray from './TileData'
 import PodContentPages from './components/PodContentPages'
+import TileImageReplace from './components/TileImageReplace'
 
 
 
@@ -17,6 +18,20 @@ import PodContentPages from './components/PodContentPages'
 export default function App(){
 
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const handleReplaceUrl = (tileId, newUrl) => {
+    const updatedTileDataArray = tileDataArray.map((tileData) => {
+      if (tileData.id === tileId) {
+        return {
+          ...tileData,
+          imageUrl: newUrl,
+        };
+      }
+      return tileData;
+    });
+  
+    console.log('Updated tileDataArray:', updatedTileDataArray);
+  };
 
   return(
     <BrowserRouter>
@@ -31,11 +46,18 @@ export default function App(){
           <Routes>
             <Route path="/" element={<div className="home-tiles-container">
                 {tileDataArray.map((tileData, index) => (
+                <div key={index}>
                   <HomeTile
-                    key={index}
                     imageUrl={tileData.imageUrl}
                     routeTo={tileData.routeTo}
                   />
+                  {loggedIn && (
+                    <TileImageReplace
+                    tileId={tileData.id}
+                    onReplaceUrl={handleReplaceUrl}
+                  />
+                  )}
+                </div>
                 ))}
               </div>} />
             <Route path="/route/:routeId" element={<PodContentPages />} />
@@ -50,6 +72,3 @@ export default function App(){
   )
 }
 
-
-/// login button is currently here but im not sure of 
-// its current function.
