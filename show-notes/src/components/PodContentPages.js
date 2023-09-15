@@ -32,8 +32,8 @@ const PodContentPages = () => {
 
         <div className="pod-content-page">
             <div className='top-bar'></div>
-            <h2>{notes ? notes.title : 'Content Not Found'}</h2>
-            <p>{notes.subtitle}</p>
+            <h2 className='podcast-title'>{notes ? notes.title : 'Content Not Found'}</h2>
+            <p className='podcast-subtitle'>{notes.subtitle}</p>
             <div className='video-display-container'>
                 <iframe
                     className='video-display'

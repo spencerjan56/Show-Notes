@@ -161,6 +161,25 @@ button:focus {
   border: none;
 }
 
+.podcast-title {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  font-size: 28px;
+  color: black;
+  text-decoration: underline;
+  z-index: 4
+}
+
+.podcast-subtitle {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  font-size: 18px;
+  color: black;
+  z-index: 4
+}
+
 .editable-input {
   color:black;
   font-size: 14px;
