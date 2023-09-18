@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Routes } from 'react-router';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import TileImageReplace from './components/TileImageReplace'
 
 
 
-
+///
 
 
 export default function App(){
@@ -20,20 +20,72 @@ export default function App(){
   const [loggedIn, setLoggedIn] = useState(false);
   const [tileDataArray, setTileDataArray] = useState(TileDataArray);
 
-  const handleReplaceUrl = (tileId, newUrl) => {
-    const updatedTileDataArray = tileDataArray.map((tileData) => {
-      if (tileData.id === tileId) {
-        return {
-          ...tileData,
-          imageUrl: newUrl,
-        };
+  useEffect(() => {
+    // Fetch tile data from backend API
+    fetch(`/api/getTiles?timestamp=${Date.now()}`)
+      
+    .then((response) => {
+      if (!response.ok) {
+        console.error('Response status:', response.status);
+        console.error('Response text:', response.statusText);
+        throw new Error('Network response was not ok');
       }
-      return tileData;
+      return response.json();
+    })
+      .then((data) => {
+        // Update component's state with the fetched tile data
+        setTileDataArray(data.tiles);
+      })
+      .catch((error) => {
+        console.error('Error fetching tile data:', error);
+      });
+  }, []);
+
+///
+
+const handleReplaceUrl = (tileId, newUrl) => {
+
+  fetch(`/api/updateTile/${tileId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ imageUrl: newUrl }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      // Handle the response data if needed
+      console.log('Updated tile data:', data.updatedTile);
+    })
+    .catch((error) => {
+      console.error('Error updating tile data:', error);
     });
-    setTileDataArray(updatedTileDataArray);
-  
-    console.log('Updated tileDataArray:', updatedTileDataArray);
-  };
+
+  const updatedTileDataArray = tileDataArray.map((tileData) => {
+    if (tileData.id === tileId) {
+      return {
+        ...tileData,
+        imageUrl: newUrl,
+      };
+    }
+    return tileData;
+  });
+  setTileDataArray(updatedTileDataArray);
+
+  // Now, make the API call to update the tile's URL
+  fetch(`/api/updateTile/${tileId}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ imageUrl: newUrl }),
+  })
+    .catch((error) => {
+      console.error('Error updating tile data:', error);
+    });
+};
+
+///
 
   return(
     <BrowserRouter>

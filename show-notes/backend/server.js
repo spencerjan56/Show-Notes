@@ -62,8 +62,50 @@ app.get('/api/getNote', async (req, res) => {
     res.status(500).json({ error: 'Unable to retrieve note.' });
   }
 });
+
+
 ///
 
 
-/// My code looks great. I dont know why it isnt s`aving 
-// anything I type into the text box. I'm in pain.
+const tileSchema = new mongoose.Schema({
+  id: Number,
+  imageUrl: String,
+  routeTo: String,
+});
+
+const Tile = mongoose.model('Tile', tileSchema);
+
+// API endpoint to fetch tile data
+app.get('/api/getTiles', async (req, res) => {
+  try {
+    const tiles = await Tile.find();
+    res.status(200).json({ tiles });
+  } catch (error) {
+    res.status(500).json({ error: 'Unable to retrieve tile data.' });
+  }
+});
+
+// API endpoint to update tile data
+app.post('/api/updateTile/:id', async (req, res) => {
+  const { id } = req.params;
+  const { imageUrl } = req.body;
+
+  try {
+
+    try {
+      // Ensure you are correctly receiving the 'id' and 'imageUrl'
+      console.log('Received ID:', id);
+      console.log('Received Image URL:', imageUrl);
+
+    const updatedTile = await Tile.findOneAndUpdate(
+      { id: parseInt(id) },
+      { imageUrl },
+      { new: true }
+    );
+
+    res.status(200).json({ updatedTile });
+  } catch (error) {
+    console.error('Error updating tile data:', error);
+    res.status(500).json({ error: 'Unable to update tile data.' });
+  }
+});

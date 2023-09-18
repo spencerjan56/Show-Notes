@@ -8,7 +8,6 @@ function TileImageReplace({ onReplaceUrl, tileId }) {
   };
 
   const handleReplaceClick = () => {
-    // Call the callback function to replace the URL in the parent component
     onReplaceUrl(tileId, newImageUrl);
   };
 
