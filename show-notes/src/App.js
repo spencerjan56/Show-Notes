@@ -47,7 +47,7 @@ export default function App(){
         </div>
           <Routes>
             <Route path="/" element={<div className="home-tiles-container">
-                {TileDataArray.map((tileData, index) => (
+                {tileDataArray.map((tileData, index) => (
                 <div key={index}>
                   <HomeTile
                     imageUrl={tileData.imageUrl}
