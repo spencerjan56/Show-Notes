@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import LoginButton from './components/LoginButton';
 import HomeTile from './components/HomeTile'
-import tileDataArray from './TileData'
+import { TileDataArray } from './components/TileData';
 import PodContentPages from './components/PodContentPages'
 import TileImageReplace from './components/TileImageReplace'
 
@@ -18,6 +18,7 @@ import TileImageReplace from './components/TileImageReplace'
 export default function App(){
 
   const [loggedIn, setLoggedIn] = useState(false);
+  const [tileDataArray, setTileDataArray] = useState(TileDataArray);
 
   const handleReplaceUrl = (tileId, newUrl) => {
     const updatedTileDataArray = tileDataArray.map((tileData) => {
@@ -29,6 +30,7 @@ export default function App(){
       }
       return tileData;
     });
+    setTileDataArray(updatedTileDataArray);
   
     console.log('Updated tileDataArray:', updatedTileDataArray);
   };
@@ -45,7 +47,7 @@ export default function App(){
         </div>
           <Routes>
             <Route path="/" element={<div className="home-tiles-container">
-                {tileDataArray.map((tileData, index) => (
+                {TileDataArray.map((tileData, index) => (
                 <div key={index}>
                   <HomeTile
                     imageUrl={tileData.imageUrl}
