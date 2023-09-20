@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NoteBox from './PodPageNoteBox';
 import Titles from './PodPageTitles'
+import Video from './PodPageVideo'
 
 
 const podNotes = [
@@ -36,17 +37,7 @@ const PodContentPages = () => {
         <div className="pod-content-page">
             <div className='top-bar'></div>
             <Titles loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-            <div className='video-display-container'>
-                <iframe
-                    className='video-display'
-                    width="560"
-                    height="315"
-                    src={notes.link}
-                    title={notes.title}
-                    allowFullScreen
-                ></iframe>
-            </div>
-
+            <Video loggedIn={loggedIn} setLoggedIn={setLoggedIn} routeId={routeId} />
             <NoteBox loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <div className='side-bar'>
                 <i className='fas fa-bars burger-icon'></i>
