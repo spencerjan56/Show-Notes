@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton';
 
-function Titles() {
+function Titles({ loggedIn, setLoggedIn }) {
   const [title, setTitle] = useState('Podcast Title Goes Here');
   const [subtitle, setSubtitle] = useState('Podcast Subtitle Will Go In This Position');
-  const [loggedIn, setLoggedIn] = useState(false);
 
   const handleTitleChange = (event) => {
     setTitle(event.target.value);

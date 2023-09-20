@@ -29,11 +29,13 @@ const PodContentPages = () => {
     const {routeId} = useParams();
     const notes = podNotes.find(item => item.id === routeId);
 
+    const [loggedIn, setLoggedIn] = useState(false);
+
     return (
 
         <div className="pod-content-page">
             <div className='top-bar'></div>
-            <Titles />
+            <Titles loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <div className='video-display-container'>
                 <iframe
                     className='video-display'
@@ -45,7 +47,7 @@ const PodContentPages = () => {
                 ></iframe>
             </div>
 
-            <NoteBox />
+            <NoteBox loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <div className='side-bar'>
                 <i className='fas fa-bars burger-icon'></i>
             </div>

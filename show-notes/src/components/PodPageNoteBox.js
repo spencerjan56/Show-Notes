@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton';
 
-function NoteBox() {
+function NoteBox({ loggedIn, setLoggedIn }) {
   const [editableText, setEditableText] = useState('Default Text');
-  const [loggedIn, setLoggedIn] = useState(false);
+  
 
   useEffect(() => {
     try {
