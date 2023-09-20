@@ -91,11 +91,9 @@ app.post('/api/updateTile/:id', async (req, res) => {
   const { imageUrl } = req.body;
 
   try {
-
-    try {
-      // Ensure you are correctly receiving the 'id' and 'imageUrl'
-      console.log('Received ID:', id);
-      console.log('Received Image URL:', imageUrl);
+    // Ensure you are correctly receiving the 'id' and 'imageUrl'
+    console.log('Received ID:', id);
+    console.log('Received Image URL:', imageUrl);
 
     const updatedTile = await Tile.findOneAndUpdate(
       { id: parseInt(id) },
@@ -108,4 +106,10 @@ app.post('/api/updateTile/:id', async (req, res) => {
     console.error('Error updating tile data:', error);
     res.status(500).json({ error: 'Unable to update tile data.' });
   }
+});
+
+// Closing brace for the outermost block
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

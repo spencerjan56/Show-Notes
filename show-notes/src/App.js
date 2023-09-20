@@ -22,7 +22,7 @@ export default function App(){
 
   useEffect(() => {
     // Fetch tile data from backend API
-    fetch(`/api/getTiles?timestamp=${Date.now()}`)
+    fetch(`http://localhost:3001/api/getTiles?timestamp=${Date.now()}`)
       
     .then((response) => {
       if (!response.ok) {
@@ -107,8 +107,8 @@ const handleReplaceUrl = (tileId, newUrl) => {
                   />
                   {loggedIn && (
                     <TileImageReplace
-                    tileId={tileData.id}
-                    onReplaceUrl={handleReplaceUrl}
+                      tileId={tileData.id}
+                      onReplaceUrl={handleReplaceUrl}
                   />
                   )}
                 </div>

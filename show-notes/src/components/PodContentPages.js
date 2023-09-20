@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import NoteBox from './PodPageNoteBox';
+import Titles from './PodPageTitles'
 
 
 const podNotes = [
@@ -32,8 +33,7 @@ const PodContentPages = () => {
 
         <div className="pod-content-page">
             <div className='top-bar'></div>
-            <h2 className='podcast-title'>{notes ? notes.title : 'Content Not Found'}</h2>
-            <p className='podcast-subtitle'>{notes.subtitle}</p>
+            <Titles />
             <div className='video-display-container'>
                 <iframe
                     className='video-display'
@@ -62,6 +62,3 @@ const PodContentPages = () => {
 export default PodContentPages
 
 
-/// this is so silly but somehow I cant find out why/how there's
-// a login button being displayed at the top of the page. I created a
-// replacement but cant seem to get rid of the old one. Brain tired.

@@ -161,23 +161,35 @@ button:focus {
   border: none;
 }
 
+.titles-container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 90px;
+  margin-left: 50px;
+  color: black;
+}
+
 .podcast-title {
   display: flex;
+  margin-bottom: 30px;
   justify-self: center;
   align-self: center;
-  font-size: 28px;
+  font-size: 34px;
   color: black;
   text-decoration: underline;
-  z-index: 4
+  z-index: 1;
 }
 
 .podcast-subtitle {
   display: flex;
+  margin-top: -5px;
   justify-self: center;
   align-self: center;
   font-size: 18px;
   color: black;
-  z-index: 4
+  z-index: 1;
 }
 
 .editable-input {
