@@ -36,9 +36,9 @@ function Video({ loggedIn, setLoggedIn, routeId }) {
 
   return (
     <div>
-      <div className='ppLoginButtonBox'>
+      {/* <div className='ppLoginButtonBox'>
         <LoginButton className='ppLoginButton' loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      </div>
+      </div> */}
 
        <div className='video-replace-container'> 
         {loggedIn ? (

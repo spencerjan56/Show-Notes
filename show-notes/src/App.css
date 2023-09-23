@@ -52,6 +52,14 @@ button:focus {
   z-index: 1;
 }
 
+.burger-button {
+  font-size: 26px;
+  color: white;
+  margin-top: 20px;
+  margin-left: 25px;
+  z-index: 4;
+}
+
 .home-side-bar{
   display: flex;
   position: fixed;
@@ -241,5 +249,43 @@ button:focus {
   color: white;
   border: 1px solid #ff5733;
   padding: 8px 16px;
+  cursor: pointer;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -300px; /* Initially hidden */
+  width: 300px;
+  height: 100%;
+  background-color: #333;
+  transition: left 0.3s ease-in-out;
+}
+
+.side-menu.open {
+  left: 0; /* Display when open */
+}
+
+/* Additional styling for links and button */
+.side-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-menu ul li {
+  padding: 10px;
+}
+
+.side-menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.side-menu button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
   cursor: pointer;
 }

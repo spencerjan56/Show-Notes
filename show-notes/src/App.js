@@ -9,7 +9,7 @@ import HomeTile from './components/HomeTile'
 import { TileDataArray } from './components/TileData';
 import PodContentPages from './components/PodContentPages'
 import TileImageReplace from './components/TileImageReplace'
-
+import SideMenu from './components/SideMenu';
 
 
 ///
@@ -19,6 +19,15 @@ export default function App(){
 
   const [loggedIn, setLoggedIn] = useState(false);
   const [tileDataArray, setTileDataArray] = useState(TileDataArray);
+  const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
+  const toggleSideMenu = () => {
+    setIsSideMenuOpen(!isSideMenuOpen);
+  }
+
+//// This side menu code above. Why do we need a separate const
+//// for setting it to closed? Why isnt it as simple as 1 piece
+//// of state, just like the login button?
 
   useEffect(() => {
     // Fetch tile data from backend API
@@ -84,7 +93,8 @@ const handleReplaceUrl = (tileId, newUrl) => {
       console.error('Error updating tile data:', error);
     });
 };
-
+////// The section right above this (i believe) i not
+///// working correctly
 ///
 
   return(
@@ -95,11 +105,14 @@ const handleReplaceUrl = (tileId, newUrl) => {
           <p className='website-title'>Show Notes</p>
         </div>
         <div className='home-side-bar'>
-          <i className='fas fa-bars burger-icon'></i>
+          <div className="burger-icon" onClick={toggleSideMenu}>
+            <i className='fas fa-bars burger-icon'></i>
+          </div>
+          <SideMenu isOpen={isSideMenuOpen} onClose={toggleSideMenu} />  
         </div>
           <Routes>
             <Route path="/" element={<div className="home-tiles-container">
-                {tileDataArray.map((tileData, index) => (
+              {tileDataArray.map((tileData, index) => (
                 <div key={index}>
                   <HomeTile
                     imageUrl={tileData.imageUrl}

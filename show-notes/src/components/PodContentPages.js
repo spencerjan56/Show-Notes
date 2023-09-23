@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import NoteBox from './PodPageNoteBox';
 import Titles from './PodPageTitles'
 import Video from './PodPageVideo'
+import SideMenu from './SideMenu'
 
 
 const podNotes = [
@@ -40,7 +41,7 @@ const PodContentPages = () => {
             <Video loggedIn={loggedIn} setLoggedIn={setLoggedIn} routeId={routeId} />
             <NoteBox loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
             <div className='side-bar'>
-                <i className='fas fa-bars burger-icon'></i>
+                <SideMenu />
             </div>
             <div className='bottom-bar'></div>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />

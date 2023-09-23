@@ -37,9 +37,9 @@ function NoteBox({ loggedIn, setLoggedIn }) {
 
   return (
     <div>
-      <div className='ppLoginButtonBox'>
+      {/* <div className='ppLoginButtonBox'>
         <LoginButton className='ppLoginButton' loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      </div>
+      </div> */}
 
       <div className="note-box-container">
         <div className='note-box'>
