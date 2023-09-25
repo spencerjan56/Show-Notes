@@ -51,8 +51,8 @@ function Video({ loggedIn, setLoggedIn, routeId }) {
                 onChange={handleUrlChange}  
                 />
             </>
-                ) : (
-                <>
+              ) : (
+            <>
                 <div className='video-display-container'>
                     <iframe
                         className='video-display'
@@ -63,7 +63,7 @@ function Video({ loggedIn, setLoggedIn, routeId }) {
                         allowFullScreen
                     ></iframe>
                 </div>
-                </>
+            </>
                 )}
         </div>
       </div>

@@ -28,7 +28,24 @@ app.use(cors());
   useUnifiedTopology: true,
 });
 
+// .then(() => {
+//   console.log('Connected to MongoDB');
+// })
+// .catch((error) => {
+//   console.error('Error connecting to MongoDB:', error);
+// });
+
+
+
+
+
 /// Backend functions will go down here ///
+
+
+
+
+
+
 
 const noteSchema = new mongoose.Schema({
   text: String,
@@ -108,8 +125,55 @@ app.post('/api/updateTile/:id', async (req, res) => {
   }
 });
 
-// Closing brace for the outermost block
-// Start the server
+///
+
+const titlesSchema = new mongoose.Schema({
+  title: String,
+  subtitle: String,
+});
+
+const Titles = mongoose.model('Titles', titlesSchema);
+
+
+app.get('/api/getTitles', async (req, res) => {
+  try {
+    // Fetch the titles from your MongoDB database
+    const titles = await Titles.findOne();
+
+    if (!titles) {
+      return res.status(404).json({ error: 'Titles not found' });
+    }
+
+    res.status(200).json({ titles });
+  } catch (error) {
+    console.error('Error retrieving titles:', error);
+    res.status(500).json({ error: 'Unable to retrieve titles.' });
+  }
+});
+
+//
+
+app.post('/api/saveTitles', async (req, res) => {
+  const { title, subtitle } = req.body;
+
+  try {
+    console.log('Received title:', title);
+    console.log('Received subtitle:', subtitle);
+
+    const titles = await Titles.findOneAndUpdate({}, { title, subtitle }, { upsert: true, new: true });
+    console.log('Titles saved:', titles);
+
+    res.status(200).json({ titles });
+  } catch (error) {
+    console.error('Error saving titles:', error);
+    res.status(500).json({ error: 'Unable to save titles.' });
+  }
+});
+
+
+///
+
+
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
