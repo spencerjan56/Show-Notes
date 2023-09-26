@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton';
+import axios from 'axios';
 
 
 const podNotes = [
@@ -26,7 +27,7 @@ const podNotes = [
 
 
 function Video({ loggedIn, setLoggedIn, routeId }) {
-  const [videoUrl, setVideoUrl] = useState();
+  const [videoUrl, setVideoUrl] = useState(podNotes.link);
   const notes = podNotes.find(item => item.id === routeId);
   
 
@@ -34,11 +35,20 @@ function Video({ loggedIn, setLoggedIn, routeId }) {
     setVideoUrl(event.target.value);
   };
 
+  const saveUrlChange = async () => {
+    try {
+      await axios.post('/api/saveVideoUrl', { videoUrl });
+    } catch (error) {
+      console.error('Error saving Url:', error);
+    }
+  };
+
+  useEffect(() => {
+    saveUrlChange();
+  }, [videoUrl]);
+
   return (
     <div>
-      {/* <div className='ppLoginButtonBox'>
-        <LoginButton className='ppLoginButton' loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
-      </div> */}
 
        <div className='video-replace-container'> 
         {loggedIn ? (
@@ -58,7 +68,7 @@ function Video({ loggedIn, setLoggedIn, routeId }) {
                         className='video-display'
                         width="560"
                         height="315"
-                        src={notes.link}
+                        src={videoUrl}
                         title={notes.title}
                         allowFullScreen
                     ></iframe>

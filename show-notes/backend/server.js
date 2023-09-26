@@ -173,6 +173,48 @@ app.post('/api/saveTitles', async (req, res) => {
 
 ///
 
+const videoUrlSchema = new mongoose.Schema({
+  videoUrl: String,
+});
+
+const Video = mongoose.model('Url', videoUrlSchema);
+
+app.get('/api/getVideoUrl', async (req, res) => {
+  try {
+    const url = await Video.findOne();
+
+    if (!url) {
+      return res.status(404).json({ error: 'Video Url not found' });
+    }
+
+    res.status(200).json({ titles });
+  } catch (error) {
+    console.error('Error retrieving video url:', error);
+    res.status(500).json({ error: 'Unable to retrieve video url.' });
+  }
+});
+
+//
+
+app.post('/api/saveVideoUrl', async (req, res) => {
+  const { videoUrl } = req.body;
+
+  try {
+    console.log('Received video url:', videoUrl);
+
+    const url = await Video.findOneAndUpdate({}, { videoUrl }, { upsert: true, new: true });
+    console.log('Video url saved:', url);
+
+    res.status(200).json({ url });
+  } catch (error) {
+    console.error('Error saving video url:', error);
+    res.status(500).json({ error: 'Unable to save video url.' });
+  }
+});
+
+
+///
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
