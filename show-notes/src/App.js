@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Routes } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -10,6 +10,7 @@ import { TileDataArray } from './components/TileData';
 import PodContentPages from './components/PodContentPages'
 import TileImageReplace from './components/TileImageReplace'
 import SideMenu from './components/SideMenu';
+import AboutPage from './components/AboutPage';
 
 
 ///
@@ -125,11 +126,12 @@ const handleReplaceUrl = (tileId, newUrl) => {
                   />
                   )}
                 </div>
-                ))}
-              </div>} />
+              ))}
+            </div>} />
             <Route path="/route/:routeId" element={<PodContentPages />} />
+            <Route path="/about" element={<AboutPage />} />
           </Routes>
-      </div>
+        </div>
       <link
         rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap"

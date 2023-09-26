@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoginButton from './LoginButton';
+import axios from 'axios';
 
 function Titles({ loggedIn, setLoggedIn }) {
   const [title, setTitle] = useState('Podcast Title Goes Here');
@@ -12,6 +13,18 @@ function Titles({ loggedIn, setLoggedIn }) {
   const handleSubtitleChange = (event) => {
     setSubtitle(event.target.value);
   };
+
+  const saveTitleChanges = async () => {
+    try {
+      await axios.post('/api/saveTitles', { title, subtitle });
+    } catch (error) {
+      console.error('Error saving titles:', error);
+    }
+  };
+
+  useEffect(() => {
+    saveTitleChanges();
+  }, [title, subtitle]);
 
   return (
     <div>

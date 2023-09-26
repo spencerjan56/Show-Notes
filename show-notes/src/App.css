@@ -45,18 +45,19 @@ button:focus {
 }
 
 .burger-icon {
-  font-size: 26px;
+  cursor: pointer;
+  font-size: 30px;
   color: white;
   margin-top: 20px;
-  margin-left: 25px;
+  margin-left: 15px;
   z-index: 1;
 }
 
 .burger-button {
-  font-size: 26px;
+  font-size: 12px;
   color: white;
   margin-top: 20px;
-  margin-left: 25px;
+  margin-left: 20px;
   z-index: 4;
 }
 
@@ -70,6 +71,22 @@ button:focus {
   background-color: black;
   height: 100%;
   z-index: 2;
+}
+
+.home-button {
+  font-size: 20px;
+  margin-top: 80px;
+  margin-left: 0px;
+  margin-bottom: -80px;
+  z-index: 4;
+}
+
+.about-button {
+  font-size: 20px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-bottom: -80px;
+  z-index: 4;
 }
 
 
@@ -288,4 +305,25 @@ button:focus {
   padding: 10px;
   width: 100%;
   cursor: pointer;
+}
+
+.about-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-header {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.about {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 15px;
 }
