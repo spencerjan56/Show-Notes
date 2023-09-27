@@ -11,6 +11,7 @@ import PodContentPages from './components/PodContentPages'
 import TileImageReplace from './components/TileImageReplace'
 import SideMenu from './components/SideMenu';
 import AboutPage from './components/AboutPage';
+import GenerateTileButton from './components/GenerateTileButton';
 
 
 ///
@@ -21,6 +22,17 @@ export default function App(){
   const [loggedIn, setLoggedIn] = useState(false);
   const [tileDataArray, setTileDataArray] = useState(TileDataArray);
   const [isSideMenuOpen, setIsSideMenuOpen] = useState(false);
+
+  const generateNewTile = () => {
+    const newTileId = tileDataArray.length + 1;
+    const newTile = {
+      id: newTileId,
+      imageUrl: 'URL_OF_YOUR_NEW_IMAGE',
+      routeTo: `/route/${newTileId}`,
+    };
+    setTileDataArray([...tileDataArray, newTile]);
+  };
+  
 
   const toggleSideMenu = () => {
     setIsSideMenuOpen(!isSideMenuOpen);
@@ -111,6 +123,11 @@ const handleReplaceUrl = (tileId, newUrl) => {
           </div>
           <SideMenu isOpen={isSideMenuOpen} onClose={toggleSideMenu} />  
         </div>
+          {loggedIn && ( // Conditionally render the button when logged in
+            <div>
+              <GenerateTileButton onGenerateTile={generateNewTile} />
+            </div>
+          )}
           <Routes>
             <Route path="/" element={<div className="home-tiles-container">
               {tileDataArray.map((tileData, index) => (
