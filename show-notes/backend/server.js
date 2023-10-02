@@ -4,7 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-const mongoURI = 'mongodb+srv://jankowskispencer:ShowNotesApp@cluster0.caqyua3.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp'
+const mongoURI = 'mongodb+srv://jankowskispencer:ShowNotesPassword@cluster0.caqyua3.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp'
 
 const app = express();
 const port = 3000;
