@@ -26,6 +26,7 @@ app.use(cors());
  mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  dbName: 'show-notes',
 })
 
 .then(() => {
@@ -42,6 +43,26 @@ app.use(cors());
 /// Backend functions will go down here ///
 
 
+
+
+
+
+// Create collections explicitly
+async function createCollections() {
+  try {
+    await mongoose.connection.createCollection('Note');
+    await mongoose.connection.createCollection('Tile');
+    await mongoose.connection.createCollection('Titles');
+    await mongoose.connection.createCollection('Video');
+    
+    console.log('Collections created successfully');
+  } catch (error) {
+    console.error('Error creating collections:', error);
+  }
+}
+
+// Call the function to create collections
+createCollections();
 
 
 
@@ -91,6 +112,7 @@ const tileSchema = new mongoose.Schema({
 });
 
 const Tile = mongoose.model('Tile', tileSchema);
+
 
 // API endpoint to fetch tile data
 app.get('/api/getTiles', async (req, res) => {
